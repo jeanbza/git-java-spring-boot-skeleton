@@ -1,0 +1,32 @@
+apply plugin: 'java'
+apply plugin: 'spring-boot'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'org.springframework.boot:spring-boot-gradle-plugin:1.2.5.RELEASE'
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile 'org.springframework.boot:spring-boot-starter-web'
+
+    testCompile 'junit:junit'
+    testCompile 'com.jayway.restassured:rest-assured:2.5.0'
+    testCompile 'org.springframework:spring-test:4.1.5.RELEASE'
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.3'
+}
+
+defaultTasks 'build'

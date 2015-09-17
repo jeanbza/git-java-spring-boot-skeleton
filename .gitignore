@@ -1,0 +1,13 @@
+*.iml
+*.log
+*.err
+*.lock
+.vagrant*
+logs
+*.pid
+*.state
+.gradle
+build
+*.class
+.idea
+classes*
