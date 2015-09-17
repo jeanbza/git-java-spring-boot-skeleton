@@ -17,12 +17,41 @@ repositories {
     mavenCentral()
 }
 
-dependencies {
-    compile 'org.springframework.boot:spring-boot-starter-web'
+String springVersion = '4.2.1.RELEASE'
+String springBootVersion = '1.2.5.RELEASE'
+String seleniumVersion = '2.47.1'
+String fluentleniumVersion = '0.10.3'
 
-    testCompile 'junit:junit'
-    testCompile 'com.jayway.restassured:rest-assured:2.5.0'
-    testCompile 'org.springframework:spring-test:4.1.5.RELEASE'
+dependencies {
+    compile "org.springframework:spring-core:$springVersion"
+    compile "org.springframework:spring-web:$springVersion"
+    compile "org.springframework:spring-webmvc:$springVersion"
+
+    compile "org.springframework.boot:spring-boot-starter:$springBootVersion"
+    compile "org.springframework.boot:spring-boot-starter-tomcat:$springBootVersion"
+    compile "org.springframework.boot:spring-boot-starter-thymeleaf:$springBootVersion"
+
+    testCompile (
+        'junit:junit',
+        "org.springframework:spring-test:$springVersion",
+
+        'com.codeborne:phantomjsdriver:1.2.1',
+
+        "org.seleniumhq.selenium:selenium-java:$seleniumVersion",
+        "org.seleniumhq.selenium:selenium-remote-driver:$seleniumVersion",
+
+        "org.fluentlenium:fluentlenium-core:$fluentleniumVersion",
+        "org.fluentlenium:fluentlenium-assertj:$fluentleniumVersion",
+    )
+
+    configurations {
+        testCompile.exclude group: 'org.seleniumhq.selenium', module: 'selenium-chrome-driver'
+        testCompile.exclude group: 'org.seleniumhq.selenium', module: 'selenium-edge-driver'
+        testCompile.exclude group: 'org.seleniumhq.selenium', module: 'selenium-htmlunit-driver'
+        testCompile.exclude group: 'org.seleniumhq.selenium', module: 'selenium-firefox-driver'
+        testCompile.exclude group: 'org.seleniumhq.selenium', module: 'selenium-ie-driver'
+        testCompile.exclude group: 'org.seleniumhq.selenium', module: 'selenium-safari-driver'
+    }
 }
 
 task wrapper(type: Wrapper) {
