@@ -29,11 +29,18 @@ public class GreetingTest extends FluentTest {
     }
 
     @Test
-    public void testGetIndex() {
+    public void testThymeleaf() {
         goTo("http://127.0.0.1:" + port + "/greeting?name=Sam");
         assertThat(pageSource()).contains("Hello, Sam!");
 
         goTo("http://127.0.0.1:" + port + "/greeting?name=Bob");
         assertThat(pageSource()).contains("Hello, Bob!");
+    }
+
+    @Test
+    public void testJavascript() throws InterruptedException {
+        goTo("http://127.0.0.1:" + port + "/greeting?name=Sam");
+        Thread.sleep(1000); // There's probably a better way to wait for $(document).ready
+        assertThat(pageSource()).contains("Hello from javascript!");
     }
 }
