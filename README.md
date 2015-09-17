@@ -1,6 +1,8 @@
 # git-java-spring-boot-skeleton
 Spring boot skeleton with thymeleaf and integration tests.
 
+[![Build Status](https://travis-ci.org/jadekler/git-java-spring-boot-skeleton.svg?branch=master)](https://travis-ci.org/jadekler/git-java-spring-boot-skeleton)
+
 ## Installation and running
 
 1. `git clone https://github.com/jadekler/git-java-spring-boot-skeleton.git ~/workspace/git-java-spring-boot-skeleton`
