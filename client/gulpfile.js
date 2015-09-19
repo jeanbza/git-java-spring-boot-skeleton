@@ -34,4 +34,4 @@ gulp.task('browserify:js', [], function () {
         .pipe(gulp.dest('dist/js'));
 });
 
-gulp.task('default', ['images', 'browserify:js']);
+gulp.task('default', ['clean', 'images', 'browserify:js']);
