@@ -5,6 +5,7 @@ Spring boot skeleton with thymeleaf and integration tests.
 
 ## Installation and running
 
+1. Install jdk8
 1. `git clone https://github.com/jadekler/git-java-spring-boot-skeleton.git ~/workspace/git-java-spring-boot-skeleton`
 1. `cd ~/workspace/git-java-spring-boot-skeleton`
 1. `./gradlew bootRun`
