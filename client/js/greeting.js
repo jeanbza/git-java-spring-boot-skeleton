@@ -1,5 +1,8 @@
 var $ = require('jquery');
 
-$(document).ready(function() {
-    $('#javascript-area').text("Hello from javascript!")
-});
+module.exports = {
+    message: "Hello from javascript!",
+    sayHi: function () {
+        $('#javascript-area').text(this.message);
+    }
+};
