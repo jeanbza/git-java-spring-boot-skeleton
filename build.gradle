@@ -1,3 +1,13 @@
+task test {
+    dependsOn(':server:test')
+    dependsOn(':client:test')
+}
+
+task build {
+    dependsOn(':server:build')
+    dependsOn('test')
+}
+
 task wrapper(type: Wrapper) {
     gradleVersion = '2.3'
 }

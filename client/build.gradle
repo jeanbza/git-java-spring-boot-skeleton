@@ -6,8 +6,8 @@ apply plugin: 'java'
 apply plugin: 'com.moowork.node'
 
 node {
-    version = '0.10.32'
-    npmVersion = '1.4.28'
+    version = '0.12.7'
+    npmVersion = '3.3.3'
     download = true
 }
 
@@ -25,9 +25,13 @@ jar {
 
 task npmBuild(dependsOn: npmInstall, type: NpmTask) {
     inputs.file 'gulpfile.js'
-    args = ['run', 'run-gulp']
+    args = ['run', 'gulp']
 }
-
 jar.dependsOn npmBuild
+
+task javascriptTest(dependsOn: npmInstall, type: NpmTask) {
+    args = ['run', 'test']
+}
+test.dependsOn('javascriptTest')
 
 defaultTasks 'clean', 'npmBuild', 'jar'
